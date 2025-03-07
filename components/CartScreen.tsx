@@ -49,7 +49,7 @@ const CartScreen: React.FC<Props> = ({ navigation }) => {
         {
           text: 'Order',
           onPress: () => {
-            navigation.navigate('CheckoutScreen', { soloItem: { ...item, quantity: 1 } });
+            navigation.navigate('CheckoutScreen', { soloItem: { ...item } });
           },
         },
       ]
@@ -162,7 +162,7 @@ const CartScreen: React.FC<Props> = ({ navigation }) => {
                             onPress={() => handleSoloOrder(item)}
                           >
                             <Ionicons name="cart-outline" size={24} color="white" />
-                            <Text style={globalStyles.buttonText}>Solo Order</Text>
+                            <Text style={globalStyles.buttonText}>Order</Text>
                           </TouchableOpacity>
                         </View>
                       )}

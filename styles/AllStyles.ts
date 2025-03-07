@@ -58,8 +58,8 @@ const globalStyles = StyleSheet.create({
     textAlign: 'center',
   },
   image: {
-    width: 70,
-    height: 70,
+    width: 80,
+    height: 80,
     borderRadius: 10,
     marginRight: 10,
   },
