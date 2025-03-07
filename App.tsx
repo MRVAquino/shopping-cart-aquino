@@ -1,23 +1,31 @@
-import react from 'react';
+import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { CartProvider } from './components/CartContent';
 import HomeScreen from './components/HomeScreen';
 import CartScreen from './components/CartScreen';
 import CheckoutScreen from './components/CheckoutScreen';
+import { CartProvider } from './components/CartContent';
 
-const Stack = createStackNavigator();
+type RootStackParamList = {
+  HomeScreen: undefined;
+  CartScreen: undefined;
+  CheckoutScreen: undefined;
+};
 
-const app = () => (
-  <CartProvider>
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="HomeScreen">
-        <Stack.Screen name="HomeScreen" component={HomeScreen} options={{title: 'Home'}}/>
-        <Stack.Screen name="CartScreen" component={CartScreen} options={{title: 'Cart'}}/>
-        <Stack.Screen name="CheckoutScreen" component={CheckoutScreen} options={{title: 'Checkout'}}/>
-      </Stack.Navigator>
-    </NavigationContainer>
-  </CartProvider>
-);
+const Stack = createStackNavigator<RootStackParamList>();
+
+const App = () => {
+  return (
+    <CartProvider>
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen name="HomeScreen" component={HomeScreen} />
+          <Stack.Screen name="CartScreen" component={CartScreen} />
+          <Stack.Screen name="CheckoutScreen" component={CheckoutScreen} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </CartProvider>
+  );
+};
 
 export default App;
